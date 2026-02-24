@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-900 text-gray-100 font-sans antialiased;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-gray-800/50 backdrop-blur-xl border border-gray-700/50 rounded-2xl shadow-xl;
+  }
+  
+  .metric-card {
+    @apply bg-gray-800/30 rounded-xl p-4 border border-gray-700/30 hover:border-lavender-500/50 transition-all duration-300;
+  }
+  
+  .risk-gauge {
+    @apply relative w-32 h-32 mx-auto;
+  }
+  
+  .risk-badge {
+    @apply px-3 py-1 rounded-full text-sm font-medium;
+  }
+  
+  .risk-badge-low {
+    @apply bg-teal-500/20 text-teal-400 border border-teal-500/30;
+  }
+  
+  .risk-badge-moderate {
+    @apply bg-orange-500/20 text-orange-400 border border-orange-500/30;
+  }
+  
+  .risk-badge-high {
+    @apply bg-red-500/20 text-red-400 border border-red-500/30;
+  }
+  
+  .glow-effect {
+    @apply relative;
+  }
+  
+  .glow-effect::after {
+    content: '';
+    @apply absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300;
+    box-shadow: 0 0 30 theme('colors.lavender.500');
+  }
+  
+  .glow-effect:hover::after {
+    @apply opacity-50;
+  }
+  
+  .data-grid {
+    @apply grid grid-cols-12 gap-16px;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-800/50;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-lavender-600/50 rounded-full hover:bg-lavender-500 transition-colors;
+}
